@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visual Resume Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-start py-10 px-4 space-y-8">
+    <h1 class="text-4xl font-bold text-blue-800">Visual Resume Builder</h1>
+    
+    <div class="flex flex-col md:flex-row gap-10 w-full justify-center">
+      <!-- Form Section -->
+      <form id="resume-form" class="bg-white shadow-lg p-6 rounded-lg space-y-4 max-w-md w-full">
+        <h2>Enter Your Details</h2>
+        <input type="text" id="name" placeholder="Your Full Name" required />
+        <input type="text" id="title" placeholder="Job Title" required />
+        <h3>Profile Image</h3>
+        <input type="file" id="profile-image-input" accept="image/*">
+
+        <textarea id="summary" placeholder="Professional Summary" rows="5"></textarea>
+
+        <input type="email" id="email" placeholder="Email" />
+        <input type="tel" id="phone" placeholder="Phone Number" />
+        <input type="text" id="skills" placeholder="Skills (comma separated)" />
+
+        <h3>Work Experience</h3>
+        <textarea id="experience" placeholder="Work experience details..."></textarea>
+
+        <h3>Education</h3>
+        <textarea id="education" placeholder="Education details..."></textarea>
+
+        
+        <button type="submit">Generate Resume</button>
+      </form>
+
+      <!-- Live Preview Section -->
+      <div id="resume-preview">
+        <h2>Resume Preview</h2>
+
+        <div class="bg-white shadow-md rounded-xl p-6 w-full max-w-2xl text-left space-y-3 text-gray-800" id="resume-card">
+            <img id="preview-image" src="" alt="Profile Image" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;">
+
+          <h1 class="text-3xl font-bold border-b pb-2 text-blue-600" id="preview-name">Your Name</h1>
+          <h3 class="text-lg italic text-gray-600" id="preview-title">Your Title</h3>
+          <p id="preview-summary">A short professional summary will appear here.</p>
+          <p><strong>Email:</strong> <span id="preview-email">example@example.com</span></p>
+          <p><strong>Phone:</strong> <span id="preview-phone">123-456-7890</span></p>
+          <p><strong>Skills:</strong> <span id="preview-skills">Python, HTML, CSS</span></p>
+          <h3>Work Experience</h3>
+          <p id="preview-experience">Your work experience will appear here.</p>
+
+          <h3>Education</h3>
+          <p id="preview-education">Your education details will appear here.</p>
+
+        </div>
+        <button id="download-btn" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow">
+            Download Resume as PDF
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</body>
+</html>
